@@ -1,0 +1,58 @@
+[1] 프로젝트 생성
+[2] 라이브러리 추가
+	. 위치 : WebContent > WEB-INF > lib
+	. commons-collections4-4.0.jar
+	. commons-dbcp2-2.0.1.jar
+	. commons-pool2-2.2.jar
+	. cos.jar
+	. jstl-1.2.jar
+	. mysql-connector-java-8.0.15.jar
+[4] jsp파일 한 개 생성
+	. 00_index.jsp
+	. Ctrl + F11 (실행)
+[5] MySQL 연동 설정
+	. 위치 : Servers > server.xml
+	. Ctrl + A (페이지 전제 선택)
+	. Ctrl + Shift + F (코드 정렬)
+	. <Context> 사이에 아래 설정내용 추가
+	
+	<Resource 
+		auth="Container" 
+		driverClassName="com.mysql.cj.jdbc.Driver" 
+		name="jdbc/pool" 
+		username="root"
+		password="root" 
+		type="javax.sql.DataSource" 
+		url="jdbc:mysql://localhost:3306/kurly?serverTimezone=UTC" 
+	/>
+
+[6] MySQL 명령문 실행
+	. 파일명 : kurly.sql
+	. MySQL Workbench에서 실행
+	
+[7] 코드 작성 순서
+	. bean패키지의 모든 DTO 작성
+	. bean패키지의 모든 DAO 작성(싱글톤, 디비연동 코드만 우선 작성)
+	. command패키지의 CommandAction 인터페이스 작성
+	. controller패키지의 Controller 서블릿 작성
+	. jsp페이지를 작성하면서 command패키지의 각종 클래스 작성
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
