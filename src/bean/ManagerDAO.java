@@ -26,13 +26,13 @@ public class ManagerDAO {
 		conn = ds.getConnection();
 		return conn;		
 	}
-	
+	// 회원 수 가져오기
 	public int getCustomerCnt() {
 		int cnt = 0;
 		try {
 			conn = getConnection();
 			
-			String sql = "SELECT COUNT(*) FROM cart";
+			String sql = "SELECT COUNT(*) FROM customer";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
@@ -48,7 +48,7 @@ public class ManagerDAO {
 		}
 		return cnt;
 	}	
-	
+	// 등록된 상품 수 가져오기
 	public int getItemCnt() {
 		int cnt = 0;
 		try {
@@ -70,7 +70,7 @@ public class ManagerDAO {
 		}
 		return cnt;
 	}
-	
+	// 누적 주문량 가져오기
 	public int getOrderCnt() {
 		int cnt = 0;
 		try {
@@ -92,13 +92,13 @@ public class ManagerDAO {
 		}
 		return cnt;
 	}	
-	
+	// 관리자 로그인 체크
 	public int checkManager(String id, String pw) {
 		int check = 0;
 		try {
 			conn = getConnection();
 			System.out.println("id = " + id);
-			System.out.println("pw = " + pw);;
+			System.out.println("pw = " + pw);
 			
 			String sql = "SELECT * FROM manager WHERE id=? AND pw=?";
 			pstmt = conn.prepareStatement(sql);
@@ -195,7 +195,7 @@ public class ManagerDAO {
 		
 		return list;
 	}
-	
+	// 파일 수정시 사진 선택안하면 기존 아이템 파일사진 가져오기
 	public String getItemImage(int item_number) {
 		
 		String item_image = "";
@@ -223,7 +223,7 @@ public class ManagerDAO {
 		
 		return item_image;
 	}
-	
+	// 파일 수정
 	public void updateItem(ItemDTO dto) {
 		try {
 			conn = getConnection();
@@ -247,7 +247,7 @@ public class ManagerDAO {
 			if(pstmt != null) { try { pstmt.close(); } catch(SQLException e) {} }
 		}
 	}
-	
+	// 상품 삭제
 	public void deleteItem(int item_number) {
 		
 		try {

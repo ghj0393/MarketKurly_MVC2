@@ -29,7 +29,7 @@ public class _38BoardWriteForCustomerPro implements CommandAction {
 		// 사용자(1)
 		request.setAttribute("type", 1);
 		
-		return "38_boardWriteForCustomerPro.jsp";
+		return "/38_boardWriteForCustomerPro.jsp";
 	}
 
 }

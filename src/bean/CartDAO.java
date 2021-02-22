@@ -123,7 +123,7 @@ public class CartDAO {
 		
 		return cnt;
 	}
-	
+	// 장바구니에서 해당 목록 삭제
 	public void deleteCart(int cart_number) {
 		try {
 			conn = getConnection();

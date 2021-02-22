@@ -26,7 +26,7 @@ public class BoardDAO {
 		conn = ds.getConnection();
 		return conn;		
 	}
-	
+	// 게시글 전체개수 가져오기
 	public int getAllBoardCount() {
 		int count = 0;
 		
@@ -93,7 +93,7 @@ public class BoardDAO {
 		
 		return boardList;
 	}
-	
+	// 새 게시글 작성
 	public void insertBoard(BoardDTO dto) {
 		try {
 			int ref = 0;
@@ -160,7 +160,7 @@ public class BoardDAO {
 				dto.setReg_date(rs.getString("reg_date"));
 				dto.setRef(rs.getInt("ref"));
 				dto.setRe_step(rs.getInt("re_step"));
-				dto.setRe_level(rs.getInt("re_step"));
+				dto.setRe_level(rs.getInt("re_level"));
 				dto.setReadcount(rs.getInt("readcount"));
 				dto.setContent(rs.getString("content"));
 			}
@@ -175,7 +175,7 @@ public class BoardDAO {
 		
 		return dto;
 	}
-	
+	// 게시판 정보 수정
 	public void updateBoard(int num, String title, String content) {
 		try {
 			conn = getConnection();
@@ -193,10 +193,9 @@ public class BoardDAO {
 		} finally {
 			if(conn != null) {try {conn.close();}catch(SQLException sql) {}}
 			if(pstmt != null) {try {pstmt.close();}catch(SQLException sql) {}}
-			if(rs != null) {try {rs.close();}catch(SQLException sql) {}}
 		}
 	}
-	
+	// 게시글 삭제하기
 	public void deleteBoard(int num) {
 		try {
 			conn = getConnection();
@@ -211,7 +210,6 @@ public class BoardDAO {
 		} finally {
 			if(conn != null) {try {conn.close();}catch(SQLException sql) {}}
 			if(pstmt != null) {try {pstmt.close();}catch(SQLException sql) {}}
-			if(rs != null) {try {rs.close();}catch(SQLException sql) {}}
 		}
 		
 	}

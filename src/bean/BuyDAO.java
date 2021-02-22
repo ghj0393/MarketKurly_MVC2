@@ -103,7 +103,7 @@ public class BuyDAO {
 			if(pstmt != null) {try {pstmt.close();}catch(SQLException sql) {}}
 		}
 	}
-	
+	// 해당id 구매내역 가져오기
 	public ArrayList<BuyDTO> getBuyList(String id){
 		
 		ArrayList<BuyDTO> buyList = new ArrayList<BuyDTO>();
